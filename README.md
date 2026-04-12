@@ -1,4 +1,4 @@
-# Camylanet - Medical Image Segmentation Framework
+# Camylanet
 
 Camylanet is a wrapper framework built on [nnU-Net v2](https://github.com/MIC-DKFZ/nnUNet) for medical image segmentation. It provides a simplified Python API for data preprocessing, model training, and evaluation, and ships with a curated set of convolutional, Transformer, and state-space backbones ready to use as drop-in trainers.
 
