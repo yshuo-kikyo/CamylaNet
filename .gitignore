@@ -1,0 +1,28 @@
+# --- 用户自定义忽略 ---
+.venv/
+build/
+others/
+camylanet.egg-info/
+experiments/
+camylanet/network_architecture/swinumamba/upernet_vssm_4xb4-160k_ade20k-512x512_tiny_iter_160000.pth
+
+
+# --- Python 通用忽略 (强烈建议加上) ---
+# 字节码文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# 常用虚拟环境名称 (以防你未来改名)
+env/
+venv/
+ENV/
+
+# 环境变量文件 (防止密码泄露)
+.env
+
+# IDE 配置 (可选，防止上传个人编辑器配置)
+.vscode/
+.idea/
+.pytest_cache/

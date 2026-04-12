@@ -1,0 +1,132 @@
+Camylanet
+Copyright 2026 Yifan Gao
+
+This product includes software developed by third parties, listed below.
+All included third-party components remain the property of their original
+authors and are redistributed here under their respective open-source
+licenses. This NOTICE file is provided to comply with the attribution
+requirements of the Apache License, Version 2.0, and with the licenses
+of the upstream projects.
+
+================================================================================
+UPSTREAM FRAMEWORK
+================================================================================
+
+nnU-Net v2
+    Copyright © Division of Medical Image Computing, German Cancer Research
+    Center (DKFZ).
+    Paper: Isensee, F., Jaeger, P.F., Kohl, S.A.A., Petersen, J., &
+    Maier-Hein, K.H. (2021). "nnU-Net: a self-configuring method for deep
+    learning-based biomedical image segmentation." Nature Methods,
+    18(2), 203-211.
+    Source: https://github.com/MIC-DKFZ/nnUNet
+    License: Apache License 2.0
+
+    Camylanet is a wrapper / derivative framework that extends nnU-Net v2
+    with a curated set of architecture variants and a simplified API.
+
+================================================================================
+BUNDLED ARCHITECTURE IMPLEMENTATIONS
+================================================================================
+
+The following network architectures are shipped under
+`camylanet/network_architecture/` (and subdirectories). Each entry lists the
+original publication and any upstream reference implementation we adapted.
+
+1. nnU-Net (Convolutional, 2D + 3D)
+   Isensee et al., Nature Methods, 2021.
+   https://github.com/MIC-DKFZ/nnUNet
+
+2. SwinUNETR (Transformer, 2D + 3D)
+   Hatamizadeh et al., "Swin UNETR: Swin Transformers for Semantic
+   Segmentation of Brain Tumors in MRI Images", 2022.
+   Reference implementation from MONAI
+   (https://github.com/Project-MONAI/MONAI), license: Apache-2.0.
+
+3. SegResNet (Convolutional, 2D + 3D)
+   Myronenko, "3D MRI brain tumor segmentation using autoencoder
+   regularization", MICCAI BrainLes, 2018.
+   Reference implementation from MONAI
+   (https://github.com/Project-MONAI/MONAI), license: Apache-2.0.
+
+4. U-Net++ (Convolutional, 2D + 3D)
+   Zhou et al., "UNet++: A Nested U-Net Architecture for Medical Image
+   Segmentation", DLMIA/MLMI, 2018.
+   Reference implementation from MONAI
+   (https://github.com/Project-MONAI/MONAI), license: Apache-2.0.
+
+5. U-Mamba (State-space, 2D + 3D)
+   Ma, Li, Wang, "U-Mamba: Enhancing Long-range Dependency for Biomedical
+   Image Segmentation", 2024.
+   https://github.com/bowang-lab/U-Mamba
+   License: Apache-2.0.
+
+6. MedNeXt (Convolutional, 3D)
+   Roy et al., "MedNeXt: Transformer-driven Scaling of ConvNets for
+   Medical Image Segmentation", MICCAI, 2023.
+   https://github.com/MIC-DKFZ/MedNeXt
+   License: Apache-2.0.
+
+7. 3D UX-Net (Transformer, 3D)
+   Lee et al., "3D UX-Net: A Large Kernel Volumetric ConvNet Modernizing
+   Hierarchical Transformer for Medical Image Segmentation", ICLR, 2023.
+   https://github.com/MASILab/3DUX-Net
+   License: Apache-2.0.
+
+8. UNETR (Transformer, 3D)
+   Hatamizadeh et al., "UNETR: Transformers for 3D Medical Image
+   Segmentation", WACV, 2022.
+   Reference implementation from MONAI
+   (https://github.com/Project-MONAI/MONAI), license: Apache-2.0.
+
+9. nnFormer (Transformer, 3D)
+   Zhou et al., "nnFormer: Volumetric Medical Image Segmentation via a
+   3D Transformer", 2022.
+   https://github.com/282857341/nnFormer
+   License: MIT.
+
+10. STU-Net (Convolutional, 3D)
+    Huang et al., "STU-Net: Scalable and Transferable Medical Image
+    Segmentation Models Empowered by Large-Scale Supervised Pre-training",
+    2023.
+    https://github.com/uni-medical/STU-Net
+    License: Apache-2.0.
+
+11. TransUNet (Transformer, 2D)
+    Chen et al., "TransUNet: Transformers Make Strong Encoders for
+    Medical Image Segmentation", 2021.
+    https://github.com/Beckschen/TransUNet
+    License: Apache-2.0.
+
+12. UTNet (Transformer, 2D)
+    Gao et al., "UTNet: A Hybrid Transformer Architecture for Medical
+    Image Segmentation", MICCAI, 2021.
+    https://github.com/yhygao/UTNet
+    License: BSD 3-Clause.
+
+13. SwinUMamba (State-space, 2D)
+    Liu et al., "Swin-UMamba: Mamba-based UNet with ImageNet-based
+    pretraining", 2024.
+    https://github.com/JiarunLiu/Swin-UMamba
+    License: Apache-2.0.
+
+14. U-KAN (Convolutional, 2D)
+    Li et al., "U-KAN Makes Strong Backbone for Medical Image Segmentation
+    and Generation", 2024.
+    https://github.com/CUHK-AIM-Group/U-KAN
+    License: (see upstream repository).
+
+================================================================================
+OTHER SHIPPED BUILDING BLOCKS
+================================================================================
+
+`camylanet/network_architecture/custom/` and `custom_modules/` contain
+auxiliary convolutional / attention blocks used by one or more of the
+architectures above. These are either original to camylanet or adapted
+from MONAI (https://github.com/Project-MONAI/MONAI, Apache-2.0) and the
+upstream reference implementations listed above.
+
+================================================================================
+
+If you believe a component is used without proper attribution, please open
+an issue or pull request so this NOTICE can be updated.
