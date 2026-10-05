@@ -9,8 +9,8 @@ batchgenerators==0.25.3
 blosc2==4.3.3
 buildtools==1.0.6
 cachetools==5.3.1
--e git+ssh://git@github.com/yshuo-kikyo/CamylaNet.git@578b14694e00b4dd88d296409cbc59760edb8e3d#egg=camylanet
-causal-conv1d==1.1.1
+-e git+ssh://git@github.com/yshuo-kikyo/CamylaNet.git@46469e47418a4306527c2aa803e8479683ac3284#egg=camylanet
+causal-conv1d==1.2.0.post2
 certifi==2026.7.22
 charset-normalizer==3.5.2
 click==8.5.0
@@ -50,7 +50,7 @@ joblib==1.6.0
 kiwisolver==1.5.1
 lazy-loader==0.6
 linecache2==1.0.0
-mamba-ssm @ file:///data/hdd1/yanshuo/cache/mamba_ssm-1.2.0.post1%2Bcu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl#sha256=d9ceab70d6a454cdc304428c92eb9cca730b5f200192fd8a73327728b666c84a
+mamba-ssm==1.2.0.post1
 Markdown==3.5
 markdown-it-py==4.2.0
 MarkupSafe==2.1.3
