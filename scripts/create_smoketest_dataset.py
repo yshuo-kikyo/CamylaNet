@@ -3,7 +3,9 @@ import json
 import numpy as np
 import nibabel as nib
 
-RAW_ROOT = Path("/data/hdd1/yanshuo/CamylaNetData/raw")
+import os
+
+RAW_ROOT = Path(os.environ["camylanet_raw"])
 DATASET = RAW_ROOT / "Dataset999_SmokeTest"
 
 imagesTr = DATASET / "imagesTr"
