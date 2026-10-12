@@ -971,6 +971,11 @@ def main():
 
     metadata = {
         "checkpoint": str(args.checkpoint),
+        "same_crop_min_coverage": float(
+            __import__("os").environ.get("O1_MIN_CROP_COVERAGE", "0.5")
+        ),
+        "coverage_gate_scope": "same_crop only",
+
         "trainer_name": ckpt["trainer_name"],
         "current_epoch": ckpt.get(
             "current_epoch",
@@ -1076,6 +1081,39 @@ def main():
             c: int((seg == c).sum())
             for c in class_ids
         }
+
+        # O1_SAME_CROP_COVERAGE_GATE
+        threshold = float(
+            __import__("os").environ.get("O1_MIN_CROP_COVERAGE", "0.5")
+        )
+        assert 0.0 <= threshold <= 1.0
+        matrices = (
+            aligned_primary_cos, aligned_head_cos,
+            dice_primary_cos, dice_head_cos,
+        )
+        for index, record in enumerate(records):
+            total = full_counts[record["class_id"]]
+            coverage = (
+                record["voxel_count_crop"] / total if total > 0 else 0.0
+            )
+            coverage_valid = total > 0 and coverage >= threshold
+            record["crop_coverage"] = coverage
+            record["coverage_valid"] = coverage_valid
+            record["min_crop_coverage"] = threshold
+
+            if not coverage_valid:
+                for key in (
+                    "aligned_primary_valid", "aligned_head_valid",
+                    "dice_primary_valid", "dice_head_valid",
+                ):
+                    record[key] = False
+                reason = record.get("invalid_reason", "")
+                record["invalid_reason"] = ";".join(
+                    x for x in (reason, "insufficient_crop_coverage") if x
+                )
+                for matrix in matrices:
+                    matrix[index, :] = float("nan")
+                    matrix[:, index] = float("nan")
 
         for r in records:
             r.update({
@@ -1214,6 +1252,8 @@ def main():
 
             (
                 one_records,
+                _,
+                _,
                 _,
                 _,
             ) = diagnose_crop(
@@ -1447,6 +1487,9 @@ def main():
         "full_voxel_count",
         "present_crop",
         "voxel_count_crop",
+        "crop_coverage",
+        "coverage_valid",
+        "min_crop_coverage",
 
         # New same-crop training-aligned diagnostics
         "aligned_loss",
